@@ -1,0 +1,148 @@
+MainActivity.kt
+
+package com.example.calculator
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        var addi = findViewById<Button>(R.id.add)
+        addi.setOnClickListener { add() }
+
+        var subt = findViewById<Button>(R.id.sub)
+        subt.setOnClickListener { sub() }
+
+        var mult = findViewById<Button>(R.id.mul)
+        mult.setOnClickListener { mul() }
+
+        var divi = findViewById<Button>(R.id.div)
+        divi.setOnClickListener { div() }
+
+    }
+
+    fun add() {
+
+        var firstnum = findViewById<EditText>(R.id.firstnum)
+        var num1 = firstnum.text.toString().trim()
+
+        var secondnum = findViewById<EditText>(R.id.secondnum)
+        var num2 = secondnum.text.toString().trim()
+
+        var result = findViewById<TextView>(R.id.result)
+        result.text = (Integer.parseInt(num1) + Integer.parseInt(num2)).toString()
+    }
+
+    fun sub() {
+
+        var firstnum = findViewById<EditText>(R.id.firstnum)
+        var num1 = firstnum.text.toString().trim()
+
+        var secondnum = findViewById<EditText>(R.id.secondnum)
+        var num2 = secondnum.text.toString().trim()
+
+        var result = findViewById<TextView>(R.id.result)
+        result.text = (Integer.parseInt(num1) - Integer.parseInt(num2)).toString()
+    }
+
+    fun mul() {
+
+        var firstnum = findViewById<EditText>(R.id.firstnum)
+        var num1 = firstnum.text.toString().trim()
+
+        var secondnum = findViewById<EditText>(R.id.secondnum)
+        var num2 = secondnum.text.toString().trim()
+
+        var result = findViewById<TextView>(R.id.result)
+        result.text = (Integer.parseInt(num1) * Integer.parseInt(num2)).toString()
+    }
+
+    fun div() {
+
+        var firstnum = findViewById<EditText>(R.id.firstnum)
+        var num1 = firstnum.text.toString().trim()
+
+        var secondnum = findViewById<EditText>(R.id.secondnum)
+        var num2 = secondnum.text.toString().trim()
+
+        var result = findViewById<TextView>(R.id.result)
+        result.text = (Integer.parseInt(num1) / Integer.parseInt(num2)).toString()
+    }
+}
+
+
+
+
+activity_main.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".MainActivity">
+
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:text="Calculator"/>-->
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="First number"
+        android:id="@+id/firstnum"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Second humber"
+        android:id="@+id/secondnum"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="result"
+        android:id="@+id/result"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:id="@+id/add"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:id="@+id/sub"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="*"
+            android:id="@+id/mul"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="/"
+            android:id="@+id/div"/>
+    </LinearLayout>
+
+
+</LinearLayout>
